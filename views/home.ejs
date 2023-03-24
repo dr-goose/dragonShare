@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/home.css">
+
+    <script src="/js/tableSearch.js" defer></script>
+    <script src="/js/home.js" defer></script>
+
+    <title>Home</title>
+</head>
+
+<body>
+    <div id="navbar">
+        <span id="account">Logged in as: <a href="/" id="username"><%= username %></a></span>
+        <span id="upload"><a href="/file/upload">Upload</a></span>
+        <span id="logout"><a href="/user/logout">Logout</a></span>
+    </div>
+
+    <div id="content">
+        <% if (files.length > 0) { %>
+            <span class="center x">
+                <input type="text" placeholder="Search" id="search">
+            </span>
+
+            <table id="filetable">
+                <th>Filename</th>
+                <th>Size</th>
+                <th>Date</th>
+                <th>Actions</th>
+
+            <% files.forEach((file) => { %>
+                <tr class="file">
+                    <td class="filename"> <%= file.name %> </td>
+                    <td class="filesize"> <%= file.size %> </td>
+                    <td class="filedate"> <%= file.date %> </td>
+                    <td class="fileactions">
+                        <button class="delete" onclick="deleteFile('<%= file.name %>')">Delete</button>
+                        <button class="download" onclick="downloadFile('<%= file.name %>')">Download</button>
+                    </td>
+                </tr>
+            <% }) %>
+
+            </table>
+
+        <% } else { %>
+            <span id="empty" class="center">No files uploaded yet! Press 'Upload' to upload some files.</span>
+        <% } %>
+    </div>
+</body>
+
+</html>

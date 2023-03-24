@@ -1,0 +1,9 @@
+node_modules
+userfiles/**
+/package-lock.json
+
+/*.js
+admin-tools/*.js
+controllers/**/*.js
+db/*.js
+middleware/*.js

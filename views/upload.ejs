@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/upload.css">
+
+    <script src="/js/upload.js" defer></script>
+    
+    <title>Upload</title>
+</head>
+
+<body>
+    <div id="navbar">
+        <span id="account">Logged in as: <a href="/" id="username"><%= username %></a></span>
+        <span id="upload"><a href="/file/upload">Upload</a></span>
+        <span id="logout"><a href="/user/logout">Logout</a></span>
+    </div>
+    <div id="content" class="center">
+        <div class="grid">
+            <input type="file" name="files" id="files" multiple>
+            <button id="upload" onclick="upload()">Upload</button>
+            <span id="error"></span>
+        </div>
+    </div>
+</body>
+
+</html>
